@@ -5,7 +5,7 @@ services:
     image: mariadb:latest
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: MySecureRootPass123!    # Ensure this is set
+      MYSQL_ROOT_PASSWORD: MySecureRootPass123!
       MYSQL_DATABASE: phpmyadmin_db
       MYSQL_USER: phpmyadmin
       MYSQL_PASSWORD: MySecurePmaPass456!
@@ -17,8 +17,6 @@ services:
     restart: always
     environment:
       PMA_HOST: db
-      PMA_USER: root
-      PMA_PASSWORD: MySecurePmaPass456!          # Must match MYSQL_ROOT_PASSWORD
       PMA_ARBITRARY: 1
     ports:
       - "8080:80"
