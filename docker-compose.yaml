@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: MySecureRootPass123!    # Ensure this is set
+      MYSQL_DATABASE: phpmyadmin_db
+      MYSQL_USER: phpmyadmin
+      MYSQL_PASSWORD: MySecurePmaPass456!
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: MySecurePmaPass456!          # Must match MYSQL_ROOT_PASSWORD
+      PMA_ARBITRARY: 1
+    ports:
+      - "8080:80"
+
+volumes:
+  db_data:
