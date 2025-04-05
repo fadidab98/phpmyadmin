@@ -19,7 +19,7 @@ services:
       PMA_HOST: db
       PMA_ARBITRARY: 1
     ports:
-      - "8080:80"
+      - "7070:80"
 
 volumes:
   db_data:
